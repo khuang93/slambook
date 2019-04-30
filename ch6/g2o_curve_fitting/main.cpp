@@ -52,8 +52,8 @@ public:
 
 int main( int argc, char** argv )
 {
-    double a=1.0, b=2.0, c=1.0;         // 真实参数值
-    int N=100;                          // 数据点
+    double a=1.0, b=2.0, c=5.0;         // 真实参数值
+    int N=10;                          // 数据点
     double w_sigma=1.0;                 // 噪声Sigma值
     cv::RNG rng;                        // OpenCV随机数产生器
     double abc[3] = {0,0,0};            // abc参数的估计值
@@ -63,7 +63,7 @@ int main( int argc, char** argv )
     cout<<"generating data: "<<endl;
     for ( int i=0; i<N; i++ )
     {
-        double x = i/100.0;
+        double x = i/(double)N;
         x_data.push_back ( x );
         y_data.push_back (
             exp ( a*x*x + b*x + c ) + rng.gaussian ( w_sigma )
