@@ -7,6 +7,7 @@ using namespace std;
 #include <boost/format.hpp>  // for formating strings
 #include <pcl/point_types.h> 
 #include <pcl/io/pcd_io.h> 
+#include <pcl/io/ply_io.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
 int main( int argc, char** argv )
@@ -82,6 +83,7 @@ int main( int argc, char** argv )
     
     pointCloud->is_dense = false;
     cout<<"点云共有"<<pointCloud->size()<<"个点."<<endl;
+    pcl::io::savePLYFile("mapa.ply",*pointCloud);
     pcl::io::savePCDFileBinary("map.pcd", *pointCloud );
     return 0;
 }
