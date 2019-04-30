@@ -1,7 +1,7 @@
 *build*
 *.out
 CMakeCache.txt
-CMaeFiles
+CMakeFiles
 cmake_install.cmake
 *.kdev4
 *.DS*
@@ -9,3 +9,4 @@ cmake_install.cmake
 *.vscode
 *.ply
 *.pcd
+Makefile
