@@ -76,9 +76,9 @@ int main( int argc, char** argv )
     Block::LinearSolverType* linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>(); // 线性方程求解器
     Block* solver_ptr = new Block(  std::unique_ptr<Block::LinearSolverType>(linearSolver) );      // 矩阵块求解器
     // 梯度下降方法，从GN, LM, DogLeg 中选
-    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::unique_ptr<Block>(solver_ptr));
-    // g2o::OptimizationAlgorithmGaussNewton* solver = new g2o::OptimizationAlgorithmGaussNewton( solver_ptr );
-    // g2o::OptimizationAlgorithmDogleg* solver = new g2o::OptimizationAlgorithmDogleg( solver_ptr );
+    // g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg( std::unique_ptr<Block>(solver_ptr));
+    // g2o::OptimizationAlgorithmGaussNewton* solver = new g2o::OptimizationAlgorithmGaussNewton(std::unique_ptr<Block>(solver_ptr));
+    g2o::OptimizationAlgorithmDogleg* solver = new g2o::OptimizationAlgorithmDogleg(std::unique_ptr<Block>(solver_ptr));
     g2o::SparseOptimizer optimizer;     // 图模型
     optimizer.setAlgorithm( solver );   // 设置求解器
     optimizer.setVerbose( true );       // 打开调试输出
